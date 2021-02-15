@@ -33,6 +33,9 @@ gem 'sorbet', '~> 0.5', group: :development
 gem 'sorbet-runtime', '~> 0.5'
 gem 'sorbet-rails', '~> 0.7'
 
+gem 'react-rails'
+gem 'mini_racer'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
