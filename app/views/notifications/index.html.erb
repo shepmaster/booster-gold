@@ -2,8 +2,31 @@
 
 <%= react_component("Gravy", @notification.to_json, prerender: true) %>
 
+<p>This never submits</p>
+
 <h1>Hotwire</h1>
 
-<turbo-frame>
-  <%= render partial: 'form' %>
-</turbo-frame>
+<%= render partial: 'form' %>
+
+<p>This submits on every button click</p>
+
+<h1>Stimulus</h1>
+
+<%= form_for(
+    @notification,
+    method: :patch,
+    data: {
+      controller: 'notif',
+      notif_count_value: @notification.count,
+    }) do |f| %>
+  <div>
+    Hello <%= @notification.name %>! You have
+    <span data-notif-target="count">
+      <%= @notification.count %>
+    </span>
+  </div>
+  <button name="direction" value="-" data-action="notif#down">-</button>
+  <button name="direction" value="+" data-action="notif#up">+</button>
+<% end %>
+
+<p>This never submits</p>
