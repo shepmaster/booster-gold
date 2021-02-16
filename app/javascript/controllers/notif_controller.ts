@@ -4,17 +4,20 @@ export default class extends Controller {
     static targets = ['count'];
     static values = { count: Number }
 
-    up(e) {
+    countTarget: Element;
+    countValue: number;
+
+    up(e: MouseEvent) {
         this.countValue += 1;
         e.preventDefault();
     }
 
-    down(e) {
+    down(e: MouseEvent) {
         this.countValue -= 1;
         e.preventDefault();
     }
 
     countValueChanged() {
-        this.countTarget.textContent = this.countValue;
+        this.countTarget.textContent = this.countValue.toString();
     }
 }
