@@ -4,8 +4,8 @@ export default class extends Controller {
     static targets = ['count'];
     static values = { count: Number }
 
-    countTarget: Element;
-    countValue: number;
+    declare countTarget: Element;
+    declare countValue: number;
 
     up(e: MouseEvent) {
         this.countValue += 1;
