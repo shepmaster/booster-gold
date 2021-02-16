@@ -1,4 +1,4 @@
 # typed: strict
 Rails.application.routes.draw do
-  resources :gravy, only: %i[index]
+  resources :notifications
 end
