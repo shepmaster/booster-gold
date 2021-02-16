@@ -1,4 +1,4 @@
-<turbo-frame id="notification_<%= @notification.id %>">
+<turbo-frame id="t-notification_<%= @notification.id %>">
   <%= form_for(@notification, method: :patch) do |f| %>
     <div>Hello <%= @notification.name %>! You have <%= @notification.count %></div>
     <button name="direction" value="-">-</button>

@@ -8,12 +8,17 @@ class NotificationsController < ApplicationController
   def update
     if params[:direction] == '+'
       @notification.count += 1
-    else
+    elsif params[:direction] == '-'
       @notification.count -= 1
+    else
+      @notification.count = params[:count]
     end
     @notification.save!
 
-    render partial: 'form'
+    respond_to do |format|
+      format.html { render :index }
+      format.json { render json: @notification }
+    end
   end
 
   private

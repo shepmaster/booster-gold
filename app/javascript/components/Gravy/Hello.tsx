@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 
-import { increment, decrement, RootState } from './ducks';
+import { increment, decrement, submit, RootState } from './ducks';
 
 export interface HelloProps {
     name: string;
@@ -16,6 +16,7 @@ const Hello: React.FunctionComponent<HelloProps> = props => {
             <div>Hello {props.name}! You have {score}</div>
             <button onClick={() => dispatch(decrement())}>-</button>
             <button onClick={() => dispatch(increment())}>+</button>
+            <button onClick={() => dispatch(submit())}>Submit</button>
         </>
     )
 };

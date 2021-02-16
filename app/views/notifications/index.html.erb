@@ -2,8 +2,6 @@
 
 <%= react_component("Gravy", @notification.to_json, prerender: true) %>
 
-<p>This never submits</p>
-
 <h1>Turbo</h1>
 
 <%= render partial: 'form' %>
@@ -12,6 +10,7 @@
 
 <h1>Stimulus</h1>
 
+<turbo-frame id="ts-notification_<%= @notification.id %>">
 <%= form_for(
     @notification,
     method: :patch,
@@ -21,12 +20,10 @@
     }) do |f| %>
   <div>
     Hello <%= @notification.name %>! You have
-    <span data-notif-target="count">
-      <%= @notification.count %>
-    </span>
+    <input readonly name="count" value="<%= @notification.count %>" data-notif-target="count" />
   </div>
-  <button name="direction" value="-" data-action="notif#down">-</button>
-  <button name="direction" value="+" data-action="notif#up">+</button>
+  <button type="button" data-action="notif#down">-</button>
+  <button type="button" data-action="notif#up">+</button>
+  <%= f.submit('Submit') %>
 <% end %>
-
-<p>This never submits</p>
+</turbo-frame>
