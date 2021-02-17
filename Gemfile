@@ -36,6 +36,7 @@ gem 'sorbet-rails', '~> 0.7'
 gem 'react-rails'
 gem 'mini_racer'
 gem 'hotwire-rails'
+gem 'haml-rails'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
