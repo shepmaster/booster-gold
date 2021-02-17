@@ -1,6 +1,7 @@
-= form_for(@client, url: jobs_clients_path, html: { class: 'hidden' }, data: { controller: 'clients-new', action: 'clients-new__show@window->clients-new#show', turbo_frame: 'danny' }) do |f|
-  %div
-    = f.label(:name)
-    = f.text_field(:name)
-  %div
-    = f.submit
+%turbo-frame#bruh
+  = form_for(@client, url: jobs_clients_path, html: { class: 'hidden' }, data: { controller: 'clients-new', action: 'clients-new__show@window->clients-new#show', turbo_frame: 'danny' }) do |f|
+    %div
+      = f.label(:name)
+      = f.text_field(:name)
+    %div
+      = f.submit

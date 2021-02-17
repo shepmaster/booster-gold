@@ -1,6 +1,8 @@
 class Jobs::ClientsController < ApplicationController
   def new
     @client = Client.new
+
+    render layout: false
   end
 
   def create
