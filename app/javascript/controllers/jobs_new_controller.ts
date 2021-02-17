@@ -8,6 +8,9 @@ export default class extends Controller {
                 // Is this the best way to communicate between controllers?
                 const event = new CustomEvent("clients-new__show");
                 window.dispatchEvent(event);
+            } else {
+                const event = new CustomEvent("clients-new__hide");
+                window.dispatchEvent(event);
             }
         }
     }

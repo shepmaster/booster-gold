@@ -1,0 +1,2 @@
+%turbo-frame#jobs-client-select
+  = select(:job, :client_id, @clients_for_select, { include_blank: 'None', selected: @selected }, data: { action: 'jobs-new#clientChanged' })

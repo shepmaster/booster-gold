@@ -4,8 +4,8 @@
     = f.text_field(:name)
   %div
     = f.label(:client)
-    = render partial: 'select', locals: { selected: 7 }
+    = render JobsClientSelectComponent.new
   %div
     = f.submit
 
-%turbo-frame#bruh{ src: new_jobs_client_path }
+%turbo-frame#jobs-client-new{ src: new_jobs_client_path }

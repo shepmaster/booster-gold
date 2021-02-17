@@ -5,7 +5,7 @@ export default class extends Controller {
         this.element.classList.remove('hidden');
     }
 
-    // hide() {
-    //     this.formTarget.classList.remove('hidden');
-    // }
+    hide() {
+        this.element.classList.add('hidden');
+    }
 }

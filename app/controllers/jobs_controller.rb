@@ -1,13 +1,6 @@
 class JobsController < ApplicationController
   def new
-    # duplicated in clients_controller
-    clients = Client.all
-    @clients_for_select = clients.map {|c| [c.name, c.id]}
-    @clients_for_select.push(['Add new...', -1])
-    #
-
     @job = Job.new
-    @client = Client.new
   end
 
   def create

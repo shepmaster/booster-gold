@@ -37,6 +37,7 @@ gem 'react-rails'
 gem 'mini_racer'
 gem 'hotwire-rails'
 gem 'haml-rails'
+gem "view_component", require: "view_component/engine"
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
