@@ -1,13 +1,3 @@
-= form_for(@job, data: { controller: 'jobs-new' }) do |f|
-  %div
-    = f.label(:name)
-    = f.text_field(:name)
-  %div
-    = f.label(:client)
-    = render partial: 'select', locals: { selected: 7 }
-  %div
-    = f.submit
-
 = form_for(@client, url: jobs_clients_path, html: { class: 'hidden' }, data: { controller: 'clients-new', action: 'clients-new__show@window->clients-new#show', turbo_frame: 'danny' }) do |f|
   %div
     = f.label(:name)
