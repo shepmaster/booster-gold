@@ -1,7 +1,15 @@
 class ContactForm
   include ActiveModel::Model
 
-  attr_accessor :name, :email, :state, :city, :start_at, :end_at
+  attr_accessor :name, :email, :state, :city, :start_at, :end_at, :current_user
+
+#  validates :current_user, inclusion: [true]
+
+  validate :is_admin
+
+  def is_admin
+    errors.add(:base, "Not admin!") unless current_user
+  end
 
   def validate
     super
