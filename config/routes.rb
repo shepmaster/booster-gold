@@ -1,5 +1,6 @@
 # typed: strict
 Rails.application.routes.draw do
+  resources :clients
   resources :contacts
   resources :jobs, only: %i[new create]
 
