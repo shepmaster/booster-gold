@@ -12,7 +12,7 @@ class ContactsController < ApplicationController
 
   # GET /contacts/new
   def new
-    @contact = Contact.new(optional_contact_params)
+    @contact = ContactForm.new(optional_contact_params)
     @contact.validate
   end
 
@@ -22,7 +22,7 @@ class ContactsController < ApplicationController
 
   # POST /contacts or /contacts.json
   def create
-    @contact = Contact.new(contact_params)
+    @contact = ContactForm.new(contact_params)
 
     respond_to do |format|
       if @contact.save
