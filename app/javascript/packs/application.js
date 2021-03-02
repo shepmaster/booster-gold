@@ -20,3 +20,10 @@ var ReactRailsUJS = require("react_ujs");
 ReactRailsUJS.useContext(componentRequireContext);
 
 import "controllers"
+
+// Styles
+// These are imported separately for faster Webpack recompilation
+// https://rubyyagi.com/solve-slow-webpack-compilation/
+import "stylesheets/base.scss"
+//import "stylesheets/components.scss"
+import "stylesheets/utilities.scss"
