@@ -1,0 +1,24 @@
+%p#notice= notice
+
+%p
+  %b Name:
+  = @contact.name
+%p
+  %b Email:
+  = @contact.email
+%p
+  %b Start at:
+  = @contact.start_at
+%p
+  %b End at:
+  = @contact.end_at
+%p
+  %b State:
+  = @contact.state
+%p
+  %b City:
+  = @contact.city
+
+= link_to 'Edit', edit_contact_path(@contact)
+\|
+= link_to 'Back', contacts_path
