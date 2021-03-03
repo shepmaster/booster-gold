@@ -9,9 +9,7 @@
   = render(TextFieldComponent.new(form: f, attribute: :company_name))
   = render(TextFieldComponent.new(form: f, attribute: :email))
   = render(TextFieldComponent.new(form: f, attribute: :phone))
+  = render(TextAreaFieldComponent.new(form: f, attribute: :description))
 
-  .field
-    = f.label :description
-    = f.text_area :description
   .actions
     = f.submit 'Save'
