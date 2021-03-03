@@ -1,33 +1,21 @@
 # frozen_string_literal: true
 
 class CardComponent < ViewComponent::Base
-  def initialize(workflow_template:, type: CardComponent::NonHero)
+  def initialize(workflow_template:, type: 'nonhero')
     @workflow_template = workflow_template
-    @type = type.respond_to?(:new) ? type.new : type
+    @type = type
   end
 
   def background
-    @type.background
+    background_color[@type]
   end
 
-  # Note: this is jumping to the 3rd step of Classes (instead of a Hash)
-  class Hero
-    def background
-      'bg-blue-900'
-    end
+  private
 
-    def link_text
-      ':icon: Open in new window'
-    end
-  end
-
-  class NonHero
-    def background
-      'bg-gray-100'
-    end
-
-    def link_text
-      ':just-icon:'
-    end
+  def background_color
+    {
+      hero: 'bg-blue-900',
+      nonhero: 'bg-gray-100',
+    }.with_indifferent_access
   end
 end
