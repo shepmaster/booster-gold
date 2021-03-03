@@ -12,7 +12,7 @@ class ClientsController < ApplicationController
 
   # GET /clients/new
   def new
-    @client = Client.new(optional_client_params)
+    @client = ClientForm.new(optional_client_params)
     @client.validate
   end
 
@@ -22,7 +22,7 @@ class ClientsController < ApplicationController
 
   # POST /clients or /clients.json
   def create
-    @client = Client.new(client_params)
+    @client = ClientForm.new(client_params)
 
     respond_to do |format|
       if @client.save
