@@ -1,18 +1,27 @@
 class ClientForm
   include ActiveModel::Model
 
-  attr_accessor :company_name,
+  attr_accessor :id,
+                :company_name,
                 :email,
                 :phone,
                 :description
 
   def to_model
-    @model ||= Client.new(
+    if id.present?
+      @model ||= Client.find(id)
+    else
+      @model ||= Client.new
+    end
+
+    @model.attributes = {
       company_name: company_name,
       email: email,
       phone: phone,
       description: description
-    )
+    }
+
+    @model
   end
 
   def validate

@@ -1,5 +1,5 @@
 class ClientsController < ApplicationController
-  before_action :set_client, only: %i[ show edit update destroy ]
+  before_action :set_client, only: %i[ show update destroy ]
 
   # GET /clients or /clients.json
   def index
@@ -18,6 +18,17 @@ class ClientsController < ApplicationController
 
   # GET /clients/1/edit
   def edit
+    client_to_edit = Client.find(params[:id])
+    edit_params = {
+      id: client_to_edit.id,
+      company_name: client_to_edit.company_name,
+      email: client_to_edit.email,
+      phone: client_to_edit.phone,
+      description: client_to_edit.description
+    }
+
+    @client = ClientForm.new(edit_params.merge(optional_client_params))
+    @client.validate
   end
 
   # POST /clients or /clients.json
