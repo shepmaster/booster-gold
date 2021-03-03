@@ -1,0 +1,16 @@
+= form_for @workflow_template do |f|
+  - if @workflow_template.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@workflow_template.errors.count, "error")} prohibited this workflow_template from being saved:"
+      %ul
+        - @workflow_template.errors.full_messages.each do |message|
+          %li= message
+
+  .field
+    = f.label :name
+    = f.text_field :name
+  .field
+    = f.label :description
+    = f.text_area :description
+  .actions
+    = f.submit 'Save'

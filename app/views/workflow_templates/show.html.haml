@@ -1,0 +1,12 @@
+%p#notice= notice
+
+%p
+  %b Name:
+  = @workflow_template.name
+%p
+  %b Description:
+  = @workflow_template.description
+
+= link_to 'Edit', edit_workflow_template_path(@workflow_template)
+\|
+= link_to 'Back', workflow_templates_path
