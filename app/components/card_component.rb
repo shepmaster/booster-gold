@@ -1,13 +1,12 @@
 # frozen_string_literal: true
 
 class CardComponent < ViewComponent::Base
-  def initialize(workflow_template:, hero: false)
+  def initialize(workflow_template:, type: CardComponent::NonHero)
     @workflow_template = workflow_template
-    @type = hero ? Hero.new : NonHero.new
+    @type = type.respond_to?(:new) ? type.new : type
   end
 
   def background
-    # Originally - just did as a bool with ternary: @hero ? 'bg-blue-900' : 'bg-gray-100'
     @type.background
   end
 
@@ -16,11 +15,19 @@ class CardComponent < ViewComponent::Base
     def background
       'bg-blue-900'
     end
+
+    def link_text
+      ':icon: Open in new window'
+    end
   end
 
   class NonHero
     def background
       'bg-gray-100'
+    end
+
+    def link_text
+      ':just-icon:'
     end
   end
 end
