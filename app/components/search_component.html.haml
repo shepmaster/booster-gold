@@ -1,0 +1,3 @@
+%div{ class: "mx-auto" }
+  = form_for workflow_templates_path, method: :get do |f|
+    = f.text_field :search,  placeholder: 'Search'
