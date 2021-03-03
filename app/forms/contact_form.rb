@@ -1,7 +1,6 @@
 class ContactForm
   include FormModel
 
-  model Contact
   attr_model :name, :email, :start_at, :end_at, :state, :city
 
   attr_accessor :current_user

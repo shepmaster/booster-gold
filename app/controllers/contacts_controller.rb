@@ -12,21 +12,21 @@ class ContactsController < ApplicationController
 
   # GET /contacts/new
   def new
-    @contact = ContactForm.new(optional_contact_params)
+    @contact = ContactForm.new(Contact.new, optional_contact_params)
     @contact.current_user = true
     @contact.validate
   end
 
   # GET /contacts/1/edit
   def edit
-    @contact = ContactForm.absorb_and_assign(@contact, optional_contact_params)
+    @contact = ContactForm.new(@contact, optional_contact_params)
     @contact.current_user = true
     @contact.validate
   end
 
   # POST /contacts or /contacts.json
   def create
-    @contact = ContactForm.new(contact_params)
+    @contact = ContactForm.new(Contact.new, contact_params)
     @contact.current_user = true
 
     respond_to do |format|
@@ -42,7 +42,7 @@ class ContactsController < ApplicationController
 
   # PATCH/PUT /contacts/1 or /contacts/1.json
   def update
-    @contact = ContactForm.absorb_and_assign(@contact, contact_params)
+    @contact = ContactForm.new(@contact, contact_params)
     @contact.current_user = true
 
     respond_to do |format|
