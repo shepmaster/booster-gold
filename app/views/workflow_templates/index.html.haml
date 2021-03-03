@@ -10,14 +10,12 @@
   - @hero_workflow_templates.each do |workflow_template|
     -# CardAndLinkComponent?
     %div{ class: "h-full" }
-      = render(CardComponent.new(workflow_template: workflow_template))
-      = link_to ':icon: Open in new window', workflow_template
+      = render(CardAndLinkComponent.new(workflow_template: workflow_template, hero: true))
 
 %div{ class: "grid auto-rows-fr grid-cols-2 gap-2 md:grid-cols-4" }
   - @non_hero_workflow_templates.each do |workflow_template|
     -# CardAndLinkComponent?
     %div{ class: "h-full" }
-      = render(CardComponent.new(workflow_template: workflow_template))
-      = link_to ':just-icon:', workflow_template
+      = render(CardAndLinkComponent.new(workflow_template: workflow_template))
 
 = link_to 'New Workflow template', new_workflow_template_path
