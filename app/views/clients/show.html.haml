@@ -1,8 +1,9 @@
 %p#notice= notice
 
-%p
-  %b Company name:
-  = @client.company_name
+%p.border.rounded.p-1
+  %b.font-thin Company name:
+  .value{ class: "p-6 bg-black text-white lg:bg-white lg:text-black" }
+    = @client.company_name
 %p
   %b Email:
   = @client.email
