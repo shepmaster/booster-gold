@@ -1,6 +1,9 @@
 # frozen_string_literal: true
 
 class CardAndLinkComponent < ViewComponent::Base
+  HERO = CardComponent::HERO
+  NONHERO = CardComponent::NONHERO
+
   def initialize(workflow_template:, type: 'nonhero')
     @workflow_template = workflow_template
     @type = type
@@ -14,8 +17,8 @@ class CardAndLinkComponent < ViewComponent::Base
 
   def link_text
     {
-      hero: ':icon: Open in new window',
-      nonhero: ':just-icon:',
+      HERO => ':icon: Open in new window',
+      NONHERO => ':just-icon:',
     }.with_indifferent_access
   end
 end
