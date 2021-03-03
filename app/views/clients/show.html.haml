@@ -3,14 +3,13 @@
 = render(FieldShowComponent.new(label: 'Company name')) do
   = @client.company_name
 
-%p
-  %b Email:
+= render(FieldShowComponent.new(label: 'Email')) do
   = @client.email
-%p
-  %b Phone:
+
+= render(FieldShowComponent.new(label: 'Phone')) do
   = @client.phone
-%p
-  %b Description:
+
+= render(FieldShowComponent.new(label: 'Description')) do
   = @client.description
 
 = link_to 'Edit', edit_client_path(@client)
