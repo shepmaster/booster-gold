@@ -1,23 +1,21 @@
-%h1 Listing workflow_templates
+%h1 Workflow Library
 
-%table
-  %thead
-    %tr
-      %th Name
-      %th Description
-      %th
-      %th
-      %th
+- @hero_workflow_templates = @workflow_templates[0..1]
+- @non_hero_workflow_templates = @workflow_templates[2..]
 
-  %tbody
-    - @workflow_templates.each do |workflow_template|
-      %tr
-        %td= workflow_template.name
-        %td= workflow_template.description
-        %td= link_to 'Show', workflow_template
-        %td= link_to 'Edit', edit_workflow_template_path(workflow_template)
-        %td= link_to 'Destroy', workflow_template, method: :delete, data: { confirm: 'Are you sure?' }
+-# Note: size-specific classes should follow defaults
+%div{ class: "grid auto-rows-fr grid-cols-1 gap-2 md:grid-cols-2" }
+  - @hero_workflow_templates.each do |workflow_template|
+    -# CardAndLinkComponent?
+    %div{ class: "h-full" }
+      = render(CardComponent.new(workflow_template: workflow_template))
+      = link_to ':icon: Open in new window', workflow_template
 
-%br
+%div{ class: "grid auto-rows-fr grid-cols-2 gap-2 md:grid-cols-4" }
+  - @non_hero_workflow_templates.each do |workflow_template|
+    -# CardAndLinkComponent?
+    %div{ class: "h-full" }
+      = render(CardComponent.new(workflow_template: workflow_template))
+      = link_to ':just-icon:', workflow_template
 
 = link_to 'New Workflow template', new_workflow_template_path
