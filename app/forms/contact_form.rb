@@ -1,32 +1,14 @@
 class ContactForm
-  include ActiveModel::Model
+  include FormModel
 
-  attr_accessor :name, :email, :state, :city, :start_at, :end_at, :current_user
+  model Contact
+  attr_model :name, :email, :start_at, :end_at, :state, :city
 
-#  validates :current_user, inclusion: [true]
+  attr_accessor :current_user
 
   validate :is_admin
 
   def is_admin
     errors.add(:base, "Not admin!") unless current_user
-  end
-
-  def validate
-    super
-    to_model.validate
-    self.errors.merge!(to_model.errors)
-  end
-
-  def to_model
-    @model ||= Contact.new(
-      name: name,
-      email: email,
-      state:  state,
-      city: city
-    )
-  end
-
-  def save
-    to_model.save
   end
 end
