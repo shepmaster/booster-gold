@@ -1,28 +1,12 @@
-= form_for @contact do |f|
-  - if @contact.errors.any?
-    #error_explanation
-      %h2= "#{pluralize(@contact.errors.count, "error")} prohibited this contact from being saved:"
-      %ul
-        - @contact.errors.full_messages.each do |message|
-          %li= message
+= form_for @contact, builder: BoostFormBuilder do |f|
+  = f.jpg_text_field :name
+  = f.jpg_text_field :email
+  /= f.datetime_select :start_at, {}, data: { reflex: 'change' }
+  /= f.datetime_select :end_at, {}, data: { reflex: 'change' }
+  = f.jpg_text_field :state
+  = f.jpg_text_field :city
+  %p
+    Did you check the base errors yet?
 
-  .field
-    = f.label :name
-    = f.text_field :name, data: { reflex: 'change' }
-  .field
-    = f.label :email
-    = f.text_field :email, data: { reflex: 'change' }
-  .field
-    = f.label :start_at
-    /= f.datetime_select :start_at, {}, data: { reflex: 'change' }
-  .field
-    = f.label :end_at
-    /= f.datetime_select :end_at, {}, data: { reflex: 'change' }
-  .field
-    = f.label :state
-    = f.text_field :state
-  .field
-    = f.label :city
-    = f.text_field :city
   .actions
     = f.submit 'Save'
