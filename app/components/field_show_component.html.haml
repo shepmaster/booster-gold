@@ -1,4 +1,3 @@
 %p.border.rounded.p-1
-  %b.font-thin=@label
-  .value{ class: "p-6 bg-black text-white lg:bg-white lg:text-black" }
-    = @value
+  = render(LabelComponent.new(label: @label))
+  = render(ValueComponent.new(value: @value))
