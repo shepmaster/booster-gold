@@ -1,13 +1,13 @@
 %p#notice= notice
 
+= render(GroupOfFieldsComponent.new) do
+  = render(FieldShowComponent.new(label: 'Company name', value: @client.company_name))
 
-= render(FieldShowComponent.new(label: 'Company name', value: @client.company_name))
+  = render(FieldShowComponent.new(label: 'Email', value: @client.email))
 
-= render(FieldShowComponent.new(label: 'Email', value: @client.email))
+  = render(FieldShowComponent.new(label: 'Phone', value: @client.phone))
 
-= render(FieldShowComponent.new(label: 'Phone', value: @client.phone))
-
-= render(FieldShowComponent.new(label: 'Description', value: @client.description))
+  = render(FieldShowComponent.new(label: 'Description', value: @client.description))
 
 = link_to 'Edit', edit_client_path(@client)
 \|
