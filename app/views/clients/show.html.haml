@@ -1,9 +1,8 @@
 %p#notice= notice
 
-%p.border.rounded.p-1
-  %b.font-thin Company name:
-  .value{ class: "p-6 bg-black text-white lg:bg-white lg:text-black" }
-    = @client.company_name
+= render(FieldShowComponent.new(label: 'Company name')) do
+  = @client.company_name
+
 %p
   %b Email:
   = @client.email
