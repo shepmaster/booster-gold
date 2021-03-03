@@ -12,7 +12,8 @@ class ClientsController < ApplicationController
 
   # GET /clients/new
   def new
-    @client = Client.new
+    @client = Client.new(optional_client_params)
+    @client.validate
   end
 
   # GET /clients/1/edit
@@ -65,5 +66,9 @@ class ClientsController < ApplicationController
     # Only allow a list of trusted parameters through.
     def client_params
       params.require(:client).permit(:company_name, :email, :phone, :description)
+    end
+
+    def optional_client_params
+      params.key?(:client) ? client_params : {}
     end
 end
