@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_03_02_214405) do
+ActiveRecord::Schema.define(version: 2021_03_03_161824) do
 
   create_table "clients", force: :cascade do |t|
     t.string "company_name"
@@ -43,6 +43,13 @@ ActiveRecord::Schema.define(version: 2021_03_02_214405) do
   create_table "notifications", force: :cascade do |t|
     t.string "name"
     t.integer "count"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "workflow_templates", force: :cascade do |t|
+    t.string "name"
+    t.text "description"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

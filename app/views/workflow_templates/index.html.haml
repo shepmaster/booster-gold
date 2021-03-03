@@ -1,0 +1,23 @@
+%h1 Listing workflow_templates
+
+%table
+  %thead
+    %tr
+      %th Name
+      %th Description
+      %th
+      %th
+      %th
+
+  %tbody
+    - @workflow_templates.each do |workflow_template|
+      %tr
+        %td= workflow_template.name
+        %td= workflow_template.description
+        %td= link_to 'Show', workflow_template
+        %td= link_to 'Edit', edit_workflow_template_path(workflow_template)
+        %td= link_to 'Destroy', workflow_template, method: :delete, data: { confirm: 'Are you sure?' }
+
+%br
+
+= link_to 'New Workflow template', new_workflow_template_path
