@@ -9,3 +9,45 @@
  * classes
  *
  */
+
+@layer base {
+  h1 {
+    @apply font-extralight text-5xl;
+  }
+
+  h2 {
+    @apply font-normal text-4xl; // 36px instead of 32... 3xl = 30...
+  }
+
+  h3 {
+    @apply font-medium text-2xl;  // 24px instead of 26? 3xl = 30
+  }
+
+  h4 {
+    @apply font-semibold text-xl;
+  }
+
+  h5 {
+    @apply font-semibold text-lg;
+  }
+
+  h6 {
+    @apply font-bold text-base;
+  }
+
+  .menu {
+    @apply font-semibold text-sm;
+  }
+
+  .subtitle1 {
+    @apply font-normal text-base;
+  }
+
+  .subtitle2 {
+    @apply font-medium text-sm;
+  }
+
+  .caption {
+    @apply font-normal text-xs;
+  }
+}
