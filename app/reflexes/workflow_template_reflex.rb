@@ -35,4 +35,8 @@ class WorkflowTemplateReflex < ApplicationReflex
   def select_template
     @selected_workflow_template = WorkflowTemplate.find(element.dataset["id"])
   end
+
+  def deselect_template
+    @selected_workflow_template = nil
+  end
 end
