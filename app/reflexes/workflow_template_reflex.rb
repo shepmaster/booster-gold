@@ -33,7 +33,7 @@ class WorkflowTemplateReflex < ApplicationReflex
   # Learn more at: https://docs.stimulusreflex.com/reflexes#reflex-classes
 
   def search
-    @workflow_templates = WorkflowTemplate.where(name: element.value)
+    workflow_templates_arel = WorkflowTemplate.arel_table
+    @workflow_templates = WorkflowTemplate.where(workflow_templates_arel[:name].matches("%#{element.value}%"))
   end
-
 end
