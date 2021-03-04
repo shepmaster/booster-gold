@@ -27,3 +27,5 @@ import "controllers"
 import "stylesheets/base.scss"
 //import "stylesheets/components.scss"
 import "stylesheets/utilities.scss"
+
+const images = require.context("../images", true)

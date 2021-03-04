@@ -1,4 +1,7 @@
 %div{ class: "mx-auto" }
   = form_for workflow_templates_path, method: :get do |f|
-    = f.text_field :search, placeholder: 'Search', value: @search
+    %div{ class: "relative mr-6 my-2 flex items-center" }
+      = f.text_field :search, placeholder: 'Search', value: @search, class: "bg-purple-white shadow rounded border-0 p-3 px-10"
+      %div{ class: "absolute left-0 ml-4 text-purple-lighter" }
+        = image_pack_tag("media/images/icons/shared/search.svg")
   = link_to 'Reset', workflow_templates_path
