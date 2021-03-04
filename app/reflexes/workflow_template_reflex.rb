@@ -36,4 +36,7 @@ class WorkflowTemplateReflex < ApplicationReflex
     workflow_templates_arel = WorkflowTemplate.arel_table
     @workflow_templates = WorkflowTemplate.where(workflow_templates_arel[:name].matches("%#{element.value}%"))
   end
+
+  def reset
+  end
 end

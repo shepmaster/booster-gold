@@ -23,11 +23,6 @@ export default class extends ApplicationController {
     // add your code here, if applicable
   }
 
-  reset () {
-    this.searchInputTarget.value = '';
-    this.stimulate();
-  }
-
   /* Reflex specific lifecycle methods.
    *
    * For every method defined in your Reflex class, a matching set of lifecycle methods become available
@@ -77,4 +72,8 @@ export default class extends ApplicationController {
   // finalizeDance(element, reflex, noop, reflexId) {
   //   element.innerText = '\nNow, the cleanup can begin!'
   // }
+
+  afterReset(element, reflex, noop, reflexId) {
+    this.searchInputTarget.value = '';
+  }
 }
