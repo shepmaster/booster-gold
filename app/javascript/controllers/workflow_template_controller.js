@@ -4,6 +4,8 @@ import ApplicationController from './application_controller'
  * Learn more at: https://docs.stimulusreflex.com
  */
 export default class extends ApplicationController {
+  static targets = [ "searchInput" ]
+
   /*
    * Regular Stimulus lifecycle methods
    * Learn more at: https://stimulusjs.org/reference/lifecycle-callbacks
@@ -19,6 +21,11 @@ export default class extends ApplicationController {
   connect () {
     super.connect()
     // add your code here, if applicable
+  }
+
+  reset () {
+    this.searchInputTarget.value = '';
+    this.stimulate();
   }
 
   /* Reflex specific lifecycle methods.
