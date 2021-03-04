@@ -3,7 +3,7 @@ class WorkflowTemplatesController < ApplicationController
 
   # GET /workflow_templates or /workflow_templates.json
   def index
-    @workflow_templates = WorkflowTemplate.all
+    @workflow_templates ||= WorkflowTemplate.all
   end
 
   # GET /workflow_templates/1 or /workflow_templates/1.json
