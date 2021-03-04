@@ -1,5 +1,4 @@
-%div{ class: "mx-auto", data: { controller: 'workflow-template'} }
+%div{ class: "mx-auto" }
   = form_for workflow_templates_path, method: :get do |f|
-    = f.text_field :search, placeholder: 'Search', data: { reflex: 'change->WorkflowTemplate#search', 'reflex-permanent': true, 'workflow-template-target': 'searchInput' }
-  %button{ data: { reflex: 'click->WorkflowTemplate#reset' } }
-    Reset
+    = f.text_field :search, placeholder: 'Search', value: @search
+  = link_to 'Reset', workflow_templates_path
