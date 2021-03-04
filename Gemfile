@@ -40,6 +40,8 @@ gem 'haml-rails'
 gem "view_component", require: "view_component/engine"
 gem 'stimulus_reflex'
 
+gem 'inline_svg'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
