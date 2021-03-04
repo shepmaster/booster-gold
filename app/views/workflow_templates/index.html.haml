@@ -19,3 +19,5 @@
       = render(CardAndLinkComponent.new(workflow_template: workflow_template))
 
 = link_to 'New Workflow template', new_workflow_template_path
+
+= render(CurrentWorkflowComponent.new(workflow_template: @selected_workflow_template))
