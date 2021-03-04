@@ -9,4 +9,6 @@ Rails.application.routes.draw do
     resources :clients, only: %i[new create]
   end
   resources :notifications
+
+  resources :nav_page, only: %i[index]
 end
