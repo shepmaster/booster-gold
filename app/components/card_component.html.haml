@@ -1,8 +1,8 @@
 %div{ class: "#{background} border-2 border-gray-300 p-6 rounded-md tracking-wide shadow-sm" }
-  = render(DropdownComponent.new(items: ['Add to my library',
-                                         'View template',
-                                         'Open in new window',
-                                         'Download']))
+  = render(DropdownComponent.new(items: [{text: 'Add to my library', data: ''},
+                                         {text: 'View template', data: { reflex: 'click->WorkflowTemplate#select_template', id: @workflow_template.id }},
+                                         {text: 'Open in new window', data: { controller: 'workflow-template', action: 'click->workflow-template#openInNewWindow', id: @workflow_template.id }},
+                                         {text: 'Download'}]))
   %div{ class: "flex items-center mb-4",
     data: { reflex: 'click->WorkflowTemplate#select_template', id: @workflow_template.id }
   }
