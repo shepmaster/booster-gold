@@ -1,8 +1,17 @@
 %div{ class: "#{background} border-2 border-gray-300 p-6 rounded-md tracking-wide shadow-sm" }
-  = render(DropdownComponent.new(items: [{text: 'Add to my library', data: ''},
-                                         {text: 'View template', data: { reflex: 'click->WorkflowTemplate#select_template', id: @workflow_template.id }},
-                                         {text: 'Open in new window', data: { controller: 'workflow-template', action: 'click->workflow-template#openInNewWindow', path: workflow_template_path(@workflow_template) }},
-                                         {text: 'Download', data: { controller: 'workflow-template', action: 'click->workflow-template#download', path: workflow_template_path(@workflow_template, format: :pdf) }},
+  = render(DropdownComponent.new(items: [ButtonComponent.new(text: 'Add to my library',
+                                                             data: {}),
+                                         ButtonComponent.new(text: 'View template',
+                                                             data: { reflex: 'click->WorkflowTemplate#select_template',
+                                                                     id: @workflow_template.id,
+                                                                   }),
+                                         LinkComponent.new(text: 'Open in new window',
+                                                           path: workflow_template_path(@workflow_template),
+                                                           options: { target: "_blank" }),
+                                         LinkComponent.new(text: 'Download',
+                                                           path: workflow_template_path(@workflow_template,
+                                                                                        format: :pdf),
+                                                           options: {target: "_blank"}),
                                         ]))
   %div{ class: "flex items-center mb-4",
     data: { reflex: 'click->WorkflowTemplate#select_template', id: @workflow_template.id }

@@ -19,6 +19,7 @@ class WorkflowTemplatesController < ApplicationController
   # GET /workflow_templates/1 or /workflow_templates/1.json
   def show
     respond_to do |format|
+      format.html
       format.pdf do
         send_file 'public/robots.txt'
       end
