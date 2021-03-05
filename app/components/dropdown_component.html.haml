@@ -10,11 +10,5 @@
     data: { "dropdown-target" => "menu" }
   }
     .overflow-hidden.bg-white.border.rounded.shadow-sm
-      %a.no-underline.block.px-6.py-3.text-gray-800.bg-white.hover:bg-primary-100.transition.ease-in-out.duration-200.whitespace-nowrap
-        Add to my library
-      %a.no-underline.block.px-6.py-3.text-gray-800.bg-white.hover:bg-primary-100.transition.ease-in-out.duration-200.whitespace-nowrap
-        View template
-      %a.no-underline.block.px-6.py-3.text-gray-800.bg-white.hover:bg-primary-100.transition.ease-in-out.duration-200.whitespace-nowrap
-        Open in new window
-      %a.no-underline.block.px-6.py-3.text-gray-800.bg-white.hover:bg-primary-100.transition.ease-in-out.duration-200.whitespace-nowrap
-        Download%div Add Dropdown template here
+      - @items.each do |item|
+        = render(DropdownItemComponent.new(item: item))
