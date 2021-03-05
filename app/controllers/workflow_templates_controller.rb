@@ -41,7 +41,7 @@ class WorkflowTemplatesController < ApplicationController
 
     respond_to do |format|
       if @workflow_template.save
-        format.turbo_stream
+        format.turbo_stream  # only to keep the "stay-in-place"... maybe?  But we wanna clear...
         format.html { redirect_to @workflow_template, notice: "Workflow template was successfully created." }
         format.json { render :show, status: :created, location: @workflow_template }
       else
