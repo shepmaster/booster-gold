@@ -27,7 +27,7 @@ export default class extends ApplicationController {
   }
 
   download() {
-    Turbo.visit(this.element.dataset["path"])
+    Turbo.visit(this.element.dataset["path"], { action: "replace" })
   }
 
   /* Reflex specific lifecycle methods.

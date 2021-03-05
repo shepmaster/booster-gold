@@ -19,12 +19,9 @@ class WorkflowTemplatesController < ApplicationController
   # GET /workflow_templates/1 or /workflow_templates/1.json
   def show
     respond_to do |format|
-      format.pdf {
-        send_data @workflow_template.name,
-          filename: "Workflow Template ##{@workflow_template.id}",
-          type: "application/pdf",
-          disposition: :inline
-      }
+      format.pdf do
+        send_file 'public/robots.txt'
+      end
     end
   end
 
