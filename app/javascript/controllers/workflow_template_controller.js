@@ -1,4 +1,5 @@
 import ApplicationController from './application_controller'
+import * as Turbo from "@hotwired/turbo"
 
 /* This is the custom StimulusReflex controller for the WorkflowTemplate Reflex.
  * Learn more at: https://docs.stimulusreflex.com
@@ -23,6 +24,10 @@ export default class extends ApplicationController {
 
   openInNewWindow() {
     window.open(this.element.dataset["path"])
+  }
+
+  download() {
+    Turbo.visit(this.element.dataset["path"])
   }
 
   /* Reflex specific lifecycle methods.
