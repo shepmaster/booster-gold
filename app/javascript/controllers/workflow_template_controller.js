@@ -22,7 +22,7 @@ export default class extends ApplicationController {
   }
 
   openInNewWindow() {
-    console.log('open window');
+    window.open(this.element.dataset["path"])
   }
 
   /* Reflex specific lifecycle methods.
