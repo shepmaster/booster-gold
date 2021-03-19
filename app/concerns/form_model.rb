@@ -17,7 +17,7 @@ module FormModel
   end
 
   included do
-    delegate :save, :save!, to: :to_model
+    delegate :save!, to: :to_model
 
     def initialize(model, attributes)
       self.attributes = model.attributes.with_indifferent_access.slice(*model_attrs)
@@ -29,6 +29,12 @@ module FormModel
       super
       to_model.validate
       self.errors.merge!(to_model.errors)
+    end
+
+    def save
+      validate
+
+      to_model.save
     end
 
     def to_model
