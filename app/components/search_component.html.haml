@@ -1,5 +1,5 @@
 %div{ class: "mx-auto" }
-  = form_for @workflow_templates_filter_form, url: workflow_templates_path, method: :get do |f|
+  = form_for @workflow_templates_filter_form, as: :filter, url: workflow_templates_path, method: :get do |f|
     %div{ class: "relative mr-6 my-2 flex items-center text-gray-400 focus-within:text-gray-800" }
       = f.text_field :search, placeholder: 'Search', class: "bg-purple-white shadow rounded border-0 p-3 px-10 text-current"
       %div{ class: "absolute left-0 ml-4" }

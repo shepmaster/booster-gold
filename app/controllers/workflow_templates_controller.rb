@@ -87,6 +87,6 @@ class WorkflowTemplatesController < ApplicationController
     end
 
     def workflow_templates_filter_params
-      params.fetch(:workflow_templates_filter_form, {}).permit(:search)
+      params.fetch(:filter, {}).permit(:search)
     end
 end
