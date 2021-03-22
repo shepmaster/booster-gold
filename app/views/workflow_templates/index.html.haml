@@ -1,6 +1,6 @@
 %h1 Workflow Library
 
-= render(SearchComponent.new(search: @search))
+= render(SearchComponent.new(workflow_templates_filter_form: @workflow_templates_filter_form))
 
 - @hero_workflow_templates = @workflow_templates[0..1] || []
 - @non_hero_workflow_templates = @workflow_templates[2..] || []
