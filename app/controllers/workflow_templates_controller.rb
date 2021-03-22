@@ -3,19 +3,9 @@ class WorkflowTemplatesController < ApplicationController
 
   # GET /workflow_templates or /workflow_templates.json
   def index
-    # URL that the search hits:
-    # http://localhost:3000/workflow_templates?workflow_template_filter_form%5Bsearch%5D=Second
-
     @workflow_templates_filter_form = WorkflowTemplatesFilterForm.new(workflow_templates_filter_params)
-    # Just testing the query and turbo, we will want a Form and Query object here.
-    # Also, that param of "/workflow_templates" is weird, but I'm just using the current
-    # form that was configured for the search component.
-    if @workflow_template_filter_form.search.present?
-      workflow_templates_arel = WorkflowTemplate.arel_table
-      @workflow_templates = WorkflowTemplate.where(workflow_templates_arel[:name].matches("%#{@workflow_template_filter_form.search}%"))
-    else
-      @workflow_templates = WorkflowTemplate.all
-    end
+
+    @workflow_templates = WorkflowTemplatesQuery.new(@workflow_templates_filter_form).results
   end
 
   # GET /workflow_templates/1 or /workflow_templates/1.json
