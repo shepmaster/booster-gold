@@ -1,3 +1,6 @@
+# frozen_string_literal: true
+
+# class docs
 class BoostFormBuilder < ActionView::Helpers::FormBuilder
   def bst_text_field(method, options = {})
     defs = { data: { reflex: 'change' } }
@@ -13,17 +16,16 @@ class BoostFormBuilder < ActionView::Helpers::FormBuilder
     defs = { data: { reflex: 'change' } }
     opts = defs.merge(options)
 
-    @in_error = object.errors[method].presence
-    @has_value = object.send(method).present?
+    field_validation = FieldValidation.new(object, method)
 
-    field = super(method, opts.merge({class: border_css}))
+    field_element = super(method, opts.merge({ class: field_validation.border_css }))
 
-    validation = @template.tag.p(class: text_css) do
-      validation_text.html_safe
+    validation_element = @template.tag.p(class: field_validation.text_css) do
+      field_validation.text.html_safe
     end
 
     @template.tag.div do
-      label(method, class: "font-extrabold") + field + validation
+      label(method, class: 'font-extrabold') + field_element + validation_element
     end
   end
 
@@ -37,35 +39,43 @@ class BoostFormBuilder < ActionView::Helpers::FormBuilder
     end
   end
 
-  private
+  # class docs
+  class FieldValidation
+    attr_reader :text_css, :border_css, :text
 
-  def text_css
-    if @in_error && @has_value
-      'text-validation-error'
-    elsif @in_error
-      'text-validation-required'
-    else
-      'text-validation-ok'
+    def initialize(object, method)
+      @in_error = object.errors[method].presence
+      @has_value = object.send(method).present?
+
+      validate
     end
-  end
 
-  def border_css
-    if @in_error && @has_value
-      'border-validation-error'
-    elsif @in_error
-      'border-validation-required'
-    else
-      'border-validation-ok'
+    def validate
+      if @in_error && @has_value
+        error
+      elsif @in_error
+        required
+      else
+        valid
+      end
     end
-  end
 
-  def validation_text
-    if @in_error && @has_value
-      "Error: #{@in_error.join(', ')}"
-    elsif @in_error
-      'Required'
-    else
-      'OK'
+    def error
+      @text_css = 'text-validation-error'
+      @border_css = 'border-validation-error'
+      @text = "Error: #{@in_error.join(', ')}"
+    end
+
+    def required
+      @text_css = 'text-validation-required'
+      @border_css = 'border-validation-required'
+      @text = 'Required'
+    end
+
+    def valid
+      @text_css = 'text-validation-ok'
+      @border_css = 'border-validation-ok'
+      @text = 'OK'
     end
   end
 end
