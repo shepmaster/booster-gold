@@ -82,6 +82,11 @@ module.exports = {
         },
         "code-400": "#fefcf9",
         "code-600": "#3c455b",
+        'validation': {
+          error: 'red',
+          required: 'blue',
+          ok: 'green',
+        },
       },
     },
     // override the default theme using the key directly
