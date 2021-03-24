@@ -46,7 +46,7 @@ class ContactsController < ApplicationController
     @contact.current_user = true
 
     respond_to do |format|
-      if @contact.update(contact_params)
+      if @contact.save
         format.html { redirect_to @contact, notice: "Contact was successfully updated." }
         format.json { render :show, status: :ok, location: @contact }
       else
