@@ -51,12 +51,12 @@ class BoostFormBuilder < ActionView::Helpers::FormBuilder
     end
 
     def validate
-      if @in_error && @has_value
+      return valid unless @in_error
+
+      if @has_value
         error
-      elsif @in_error
-        required
       else
-        valid
+        required
       end
     end
 
